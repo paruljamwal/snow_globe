@@ -5,8 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root{
+            --gradient: #0002 0 0.125%, #0000 0 9.875%, #0002 0 10%;
+        }
+        .canvas{
+            width: 80vmin;
+            height: 80vmin;
+         
+            background: repeating-linear-gradient(var(--gradient)),
+            repeating-linear-gradient(to right , var(--gradient));
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        .canvas div,
+        .canvas div::before,
+        .canvas div::after{
+            position: absolute;
+            box-sizing: border-box;
+            display: block;
+        }
+
+        /* base  */
+        .base{
+            width: 60%;
+            height: 30%;
+            background: pink ;
+            bottom: 0;
+            left: 20%;
+            border-radius:100% / 40% ;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="canvas">
+    <div class="base"></div>
+    <div class="bowl"></div>
+    </div>
 </body>
 </html>
