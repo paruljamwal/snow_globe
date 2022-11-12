@@ -10,6 +10,10 @@
         :root{
             --gradient: #0002 0 0.125%, #0000 0 9.875%, #0002 0 10%;
         }
+
+        html{
+            background: #cde;
+        }
         .canvas{
             width: 80vmin;
             height: 80vmin;
@@ -46,7 +50,7 @@
         .bowl{
             width: 90%;
             height: 90%;
-            background: #beeeef88;
+            background: #beeeef44;
             border-radius: 50%;
             top: 0;
             left: 5%;
@@ -57,16 +61,62 @@
             -webkit-mask: radial-gradient(100% 50% at 50% 14%, #0000 50%, #000 0);
            mask: radial-gradient(100% 50% at 50% 14%, #0000 50%, #000 0);
            background: 
+           radial-gradient(100% 50% at 50% 14%, #000 50% , #0000 52%),
            radial-gradient(100% 50% at 50% 14%, #000 , #0000 80%),
            linear-gradient(to right, #0004, #0000, #0004),
            repeating-linear-gradient(to right, #444 0 1.2%, #333 0 2.4%);
         }
+
+        .bowl + .bowl{
+            box-shadow: inset 0 0 2vmin #fff9 ,
+                         inset 3vmin 0 5vmin #0003,
+                          inset -3vmin 0 5vmin #0003 ,
+                          inset 0 -20vmin 3vmin -14vmin #0007;
+            background: #beeeef33;
+        }
+
+        .ground{
+            width: 80%;
+            height: 20%;
+            border-radius: 50%;
+            background: white;
+            top: 65%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .snow{
+            width: 97.5%;
+            height:95%;
+            border-radius: 50%;
+            background: linear-gradient(#0000 79%, #eee 0) ;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        .reflection{
+            width:45% ;
+            height: 18%;
+            background: linear-gradient(-17deg,#fff4 , #fff0);
+            border-radius: 50%;
+            top: 13%;
+            left: 60%;
+            transform:rotate(17deg) translateX(-50%);
+        }
+       
     </style>
 </head>
 <body>
     <div class="canvas">
     <div class="base"></div>
-    <div class="bowl"></div>    
+    <div class="bowl">
+        <div class="snow"></div>
+        <div class="ground"></div>
+    </div>    
+    <div class="bowl">
+        <div class="reflection"></div>
+    </div>
     <div class="base"></div>
     </div>
 </body>
