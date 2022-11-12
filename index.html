@@ -15,9 +15,9 @@
             background: #cde;
         }
         .canvas{
-            width: 80vmin;
-            height: 80vmin;
-         
+            --size:80vmin;
+            width: var(--size);
+            aspect-ratio: 1;
             background: repeating-linear-gradient(var(--gradient)),
             repeating-linear-gradient(to right , var(--gradient));
             position: absolute;
@@ -25,6 +25,28 @@
             left: 50%;
             transform: translate(-50%,-50%);
         }
+
+
+        .canvas:active{
+            animation: shake 1s infinite;
+        }
+
+
+        @keyframes shake {
+            0%,100%{
+                transform:translate(-50%,-50%) rotate(4deg) translate(0,-10%);
+            }
+            25%,75%{
+                transform:translate(-50%,-50%) rotate(0deg) translate(0,0);
+
+            }
+
+            50%{
+                transform:translate(-50%,-50%) rotate(-6deg) translate(0,-12%);
+
+            }
+        }
+
 
         .canvas div,
         .canvas div::before,
@@ -54,6 +76,7 @@
             border-radius: 50%;
             top: 0;
             left: 5%;
+            overflow: hidden;
          
         }
 
@@ -93,6 +116,10 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
+            box-shadow:
+            inset -2vmin 2vmin 4vmin -2vmin #fffa,
+             inset 2vmin 0 4vmin -2vmin #0001;
+            
         }
 
         .reflection{
@@ -105,14 +132,145 @@
             transform:rotate(17deg) translateX(-50%);
         }
        
+        .shadow{
+            width: 100%;
+            height: 15%;
+            background: radial-gradient((farthest-side, #0088,#0000));
+            border-radius: 50%;
+            bottom: -4%;
+            left: -5%;
+            filter: blur(1vmin);
+        }
+
+        .snowlake{
+            left: 50%;
+            top: 3%;
+            width: 2%;
+            height: 2%;
+            background: white;
+            border-radius: 50%;
+            box-shadow:  inset 0.25vmin -0.25vmin 0.25vmin #0002;
+            animation: snowfall 4s infinite forwards;
+        }
+
+        @keyframes snowfall {
+            to{
+                transform:  translate(0,calc(var(--size)* 0.8));
+            }
+        }
+
+        .snowlake:nth-child(1n){animation-delay:2s ;}
+        .snowlake:nth-child(2n){animation-delay:3s ;}
+        .snowlake:nth-child(3n){animation-delay:1s ;}
+        .snowlake:nth-child(4n){animation-delay:2s ;}
+        .snowlake:nth-child(5n){animation-delay:2.5s ;}
+        .snowlake:nth-child(6n){animation-delay:3.5s ;}
+        .snowlake:nth-child(7n){animation-delay:1s ;}
+        .snowlake:nth-child(8n){animation-delay:3.6s ;}
+        .snowlake:nth-child(9n){animation-delay:4s ;}
+        .snowlake:nth-child(10n){ animation-delay:2s ;}
+        .snowlake:nth-child(11n){ animation-delay:1.5s ;}
+        .snowlake:nth-child(12n){ animation-delay:2.2s ;}
+        .snowlake:nth-child(13n){ animation-delay:3.2s ;}
+        .snowlake:nth-child(14n){ animation-delay:2.5s ;}
+        .snowlake:nth-child(15n){ animation-delay:1s ;}
+
+        .snowlake:nth-child(16n){animation-delay:1s ;}
+        .snowlake:nth-child(17n){animation-delay:1.2s ;}
+        .snowlake:nth-child(18n){animation-delay:3s ;}
+        .snowlake:nth-child(19n){animation-delay:2.3s ;}
+        .snowlake:nth-child(20n){animation-delay:1.3s ;}
+        .snowlake:nth-child(21n){animation-delay:1.6s ;}
+        .snowlake:nth-child(22n){animation-delay:2.9s ;}
+        .snowlake:nth-child(23n){animation-delay:3.1s ;}
+        .snowlake:nth-child(24n){animation-delay:2.4s ;}
+        .snowlake:nth-child(25n){animation-delay:1.8s ;}
+        .snowlake:nth-child(26n){ animation-delay:4s ;}
+        .snowlake:nth-child(27n){ animation-delay:2.7s ;}
+        .snowlake:nth-child(28n){ animation-delay:3.2s ;}
+        .snowlake:nth-child(29n){ animation-delay:4.1s ;}
+        .snowlake:nth-child(30n){animation-delay:5s ;}
+
+        .snowlake:nth-child(1n){left:10%}
+        .snowlake:nth-child(2n){left:20%}
+        .snowlake:nth-child(3n){left:30%}
+        .snowlake:nth-child(4n){left:40%}
+        .snowlake:nth-child(5n){left:50%}
+        .snowlake:nth-child(6n){left:60%}
+        .snowlake:nth-child(7n){left:70%}
+        .snowlake:nth-child(8n){left:80%}
+        .snowlake:nth-child(9n){left:90%}
+        .snowlake:nth-child(10n){left:99%}
+        .snowlake:nth-child(11n){ left:15%}
+        .snowlake:nth-child(12n){ left:25%}
+        .snowlake:nth-child(13n){ left:35%}
+        .snowlake:nth-child(14n){ left:45%}
+        .snowlake:nth-child(15n){left:55%}
+
+        .snowlake:nth-child(16n){left:66%}
+        .snowlake:nth-child(17n){left:77%}
+        .snowlake:nth-child(18n){left:88%}
+        .snowlake:nth-child(19n){left:2%}
+        .snowlake:nth-child(20n){left:12%}
+        .snowlake:nth-child(21n){left:22%}
+        .snowlake:nth-child(22n){left:33%}
+        .snowlake:nth-child(23n){left:43%}
+        .snowlake:nth-child(24n){left:52%}
+        .snowlake:nth-child(25n){left:57%}
+        .snowlake:nth-child(26n){ left:63%}
+        .snowlake:nth-child(27n){ left:68%}
+        .snowlake:nth-child(28n){ left:72%}
+        .snowlake:nth-child(29n){ left:76%}
+        .snowlake:nth-child(30n){left:97%}
+
+ 
+        
+        .canvas:active .snowlake{
+            animation: none;
+        }
     </style>
 </head>
 <body>
     <div class="canvas">
+        <div class="shadow"></div>
     <div class="base"></div>
     <div class="bowl">
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>      
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>   
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>      
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>   
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+        <div class="snowlake"></div>
+
         <div class="snow"></div>
         <div class="ground"></div>
+
+        <!-- <div class="snowlake"></div> -->
+
     </div>    
     <div class="bowl">
         <div class="reflection"></div>
