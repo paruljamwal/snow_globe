@@ -33,18 +33,41 @@
         /* base  */
         .base{
             width: 60%;
-            height: 30%;
-            background: pink ;
+            height: 26%;
             bottom: 0;
             left: 20%;
             border-radius:100% / 40% ;
+            background: 
+            radial-gradient(100% 50% at 50% 14%, #000 , #0000 80%),
+            linear-gradient(to right, #0004, #0000, #0004);
+            background-color: rgb(19, 19, 19) ;
+        }
+
+        .bowl{
+            width: 90%;
+            height: 90%;
+            background: #beeeef88;
+            border-radius: 50%;
+            top: 0;
+            left: 5%;
+         
+        }
+
+        .base ~ .base{
+            -webkit-mask: radial-gradient(100% 50% at 50% 14%, #0000 50%, #000 0);
+           mask: radial-gradient(100% 50% at 50% 14%, #0000 50%, #000 0);
+           background: 
+           radial-gradient(100% 50% at 50% 14%, #000 , #0000 80%),
+           linear-gradient(to right, #0004, #0000, #0004),
+           repeating-linear-gradient(to right, #444 0 1.2%, #333 0 2.4%);
         }
     </style>
 </head>
 <body>
     <div class="canvas">
     <div class="base"></div>
-    <div class="bowl"></div>
+    <div class="bowl"></div>    
+    <div class="base"></div>
     </div>
 </body>
 </html>
